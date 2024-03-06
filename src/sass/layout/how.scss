@@ -1,0 +1,68 @@
+.how {
+  padding: 4.5rem 0 9rem;
+}
+.how__content-box {
+  position: relative;
+  max-width: 120rem;
+  margin: 0 auto;
+  display: grid;
+  column-gap: 6rem;
+  row-gap: 4rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.how__icon-box {
+  height: 10rem;
+  width: 6rem;
+  background-color: #555;
+}
+.how__icon-box--1,
+.how__icon-box--3 {
+  justify-self: end;
+}
+
+.how__number {
+  height: 5rem;
+  width: 5rem;
+  background-color: #555;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.how__text-box {
+}
+.how__text-box--2,
+.how__text-box--4 {
+  display: flex;
+  flex-direction: column;
+}
+.how__text-box p,
+.how__text-box h3 {
+  text-align: start;
+  align-self: flex-end;
+}
+
+.how__divider {
+  position: absolute;
+  left: 50%;
+  translate: -50%;
+  height: 110%;
+  width: 0.5rem;
+  background-color: #eee;
+}
+
+.how__divider::after {
+  content: "";
+  display: block;
+  height: 2rem;
+  width: 2rem;
+  background-color: #eee;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  translate: -50%;
+  bottom: 0;
+}

@@ -1,0 +1,74 @@
+[
+  {
+    "date": "Jan 16, 2024",
+    "description": "Anything",
+    "features": { "bathroom": 3, "toilet": 3, "bedroom": 3 },
+    "id": 1705433000147,
+    "institution": { "name": "Kwarapoly", "id": 1705433000147 },
+    "location": {
+      "city": { "city": "Ilorin" },
+      "state": { "state": "Kwara" },
+      "country": { "country": "Nigeria" },
+      "address": "Oyun"
+    },
+    "price": 20000,
+    "propertyType": "",
+    "publish": true,
+    "src": {
+      "pictureUrls": [
+        "https://images.nigeriapropertycentre.com/properties/images/2132377/065d8ac4eb6227-5-bedroom-detached-duplex-detached-duplexes-for-rent-ikota-lekki-lagos.jpeg",
+        "https://images.nigeriapropertycentre.com/properties/images/2132377/065d8ac4eb6227-5-bedroom-detached-duplex-detached-duplexes-for-rent-ikota-lekki-lagos.jpeg",
+        "https://images.nigeriapropertycentre.com/properties/images/2132377/065d8ac58155c6-5-bedroom-detached-duplex-detached-duplexes-for-rent-ikota-lekki-lagos.jpeg"
+      ]
+    },
+    "status": "available",
+    "title": "3 bedroom flat"
+  },
+  {
+    "date": "Jan 18, 2024",
+    "description": "2 Bedroom flat",
+    "features": { "bathroom": 2, "toilet": 2, "bedroom": 2 },
+    "id": 1705433000212,
+    "institution": { "name": "uniosun", "id": 1705433000212 },
+    "location": {
+      "city": { "city": "osogbo" },
+      "state": { "state": "osun" },
+      "country": { "country": "Nigeria" },
+      "address": "uniosun"
+    },
+    "price": 10000,
+
+    "propertyType": "",
+    "publish": false,
+    "src": {
+      "pictureUrls": [
+        "https://images.nigeriapropertycentre.com/properties/images/2132377/065d8ac4eb6227-5-bedroom-detached-duplex-detached-duplexes-for-rent-ikota-lekki-lagos.jpeg"
+      ]
+    },
+    "status": "available",
+    "title": "2 bedroom flat"
+  },
+  {
+    "date": "Jan 20, 2024",
+    "description": " A room self con",
+    "features": { "bathroom": 1, "toilet": 1, "bedroom": 1 },
+    "id": 1705433000200,
+    "institution": { "name": "unilorin", "id": 1705433000200 },
+    "location": {
+      "city": { "city": "Ilorin" },
+      "state": { "state": "Kwara" },
+      "country": { "country": "Nigeria" },
+      "address": "Tanke"
+    },
+    "price": 11000,
+    "propertyType": "",
+    "publish": true,
+    "src": {
+      "pictureUrls": [
+        "https://images.nigeriapropertycentre.com/properties/images/2132377/065d8ac4eb6227-5-bedroom-detached-duplex-detached-duplexes-for-rent-ikota-lekki-lagos.jpeg"
+      ]
+    },
+    "status": "available",
+    "title": "A room self con"
+  }
+]

@@ -1,0 +1,30 @@
+.cta {
+  background-color: #444;
+  padding: 4.5rem 0;
+}
+.cta__container {
+  display: flex;
+  align-items: center;
+  width: 120rem;
+  margin: 0 auto;
+}
+.cta__img-box {
+  width: 50%;
+}
+
+.cta__text-box {
+  background-color: #eee;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 9rem;
+}
+
+.cta__text {
+  font-size: 3rem;
+}
+
+.cta__link {
+  font-size: 2rem;
+}

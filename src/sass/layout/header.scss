@@ -1,0 +1,28 @@
+.header {
+  background-color: #eee;
+  height: 6rem;
+  display: flex;
+}
+.header__container {
+  flex-grow: 1;
+  max-width: 130rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__logo-link {
+  display: flex;
+  gap: 5rem;
+}
+
+.header__link {
+  display: flex;
+  gap: 3rem;
+}
+
+.header__sign {
+  display: flex;
+  gap: 3rem;
+}

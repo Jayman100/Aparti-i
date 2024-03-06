@@ -1,0 +1,29 @@
+.navbar {
+  background-color: #eee;
+}
+
+.nav {
+  display: flex;
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 1.5rem 0;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav__link:link,
+.nav__link:active {
+  display: block;
+  border: none;
+}
+
+.nav__links.active {
+  text-decoration: none;
+  font-weight: bold;
+}
