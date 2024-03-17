@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Images from "./Images";
 import Input from "../../utils/Input";
 import Button from "../../utils/Button";
-import { Outlet, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import listingContext from "../../contexts/ListingContext";
 
 const initialInputs = {
   title: "",
@@ -22,8 +23,57 @@ const initialInputs = {
 
 function Create() {
   const [inputValues, setInputValues] = useState(initialInputs);
-  const [state, setState] = useState("");
-  const [step, setStep] = useState(1);
+  const [states, setStates] = useState("publish");
+  const { listing, setListing } = useContext(listingContext);
+
+  const {
+    title,
+    status,
+    type,
+    city,
+    address,
+    state,
+    country,
+    institution,
+    agent,
+    property,
+    bedroom,
+    toilet,
+    bathroom,
+  } = inputValues;
+
+  function newProperty() {
+    const id = crypto.randomUUID();
+    const options = {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    };
+
+    const date = new Intl.DateTimeFormat(navigator.language, options).format(
+      new Date()
+    );
+
+    const property2 = {
+      id,
+      date,
+      title,
+      status,
+      type,
+      location: {
+        city: { city },
+        state: { state },
+        country: { country },
+        address,
+      },
+      institution: { name: institution, id },
+      features: { bedroom, toilet, bathroom },
+      price: { agentFee: agent, mainFee: property },
+      publish: states === "publish" ? true : false,
+    };
+
+    return property2;
+  }
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -32,50 +82,65 @@ function Create() {
   }
 
   function handleState(e) {
-    setState(e.target.value);
+    setStates(e.target.value);
   }
 
   const { create } = useParams();
   const navigate = useNavigate();
 
-  function handleNavigation() {
-    if (step < 2) setStep((step) => step + 1);
-    navigate("../637267/images");
+  function handleNext() {
+    // if (
+    //   !title ||
+    //   !status ||
+    //   !type ||
+    //   !city ||
+    //   !address ||
+    //   !state ||
+    //   !country ||
+    //   !institution ||
+    //   !agent ||
+    //   !property ||
+    //   !bedroom ||
+    //   !toilet ||
+    //   !bathroom
+    // ) {
+    //   return;
+    // }
+
+    navigate("../images");
+    setListing(newProperty());
   }
 
   return (
     <div className="create">
       <div className="create__heading">
         <p>Add listing</p>
-        <p>{inputValues.bedroom}</p>
-        <p>{inputValues.toilet}</p>
-        <p>{inputValues.bathroom}</p>
       </div>
 
       <div className="create__steps">
-        <Step className="create__steps--1" step="Property detailas" />
-        <Step className="create__steps--2" step="Pictures" />
-        <Step className="create__steps--3" step="Done" />
+        <Step step="Property details" />
+        <Step step="Pictures" />
+        <Step step="Done" />
       </div>
 
       <div>
-        {step === 1 && (
+        {create === "images" ? (
+          <Images />
+        ) : (
           <CreateForm>
-            <State onChange={handleState} inputValues={State} />
+            <State onChange={handleState} inputValues={states} />
             <Info onChange={handleChange} inputValues={inputValues} />
             <Location onChange={handleChange} inputValues={inputValues} />
             <Price onChange={handleChange} inputValues={inputValues} />
             <Features onChange={handleChange} inputValues={inputValues} />
             <Button className="create__btn">
               <button type="button">Cancel</button>
-              <button type="button" onClick={handleNavigation}>
+              <button type="button" onClick={handleNext}>
                 Next
               </button>
             </Button>
           </CreateForm>
         )}
-
-        {step === 2 && <Images />}
       </div>
     </div>
   );
@@ -83,7 +148,7 @@ function Create() {
 
 function Step({ className, step }) {
   return (
-    <div className={className}>
+    <div className="create__steps--box">
       <div>&nbsp;</div>
       <p>{step}</p>
     </div>
@@ -104,6 +169,7 @@ function State({ onChange, inputValues }) {
           id="publish"
           onChange={onChange}
           value="publish"
+          checked
         />
         <label htmlFor="publish">Publish</label>
       </div>

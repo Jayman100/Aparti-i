@@ -13,33 +13,39 @@ import Request from "./components/Request/Request";
 import Rent from "./components/Rent/Rent";
 import Details from "./components/Details";
 import Create from "./components/Create/Create";
-import Images from "./components/Create/Images";
+// import Images from "./components/Create/Images";
+import listingContext from "./contexts/ListingContext";
+import { useState } from "react";
 function App() {
+  const [listing, setListing] = useState(null);
+
   return (
     <>
       <Navbar />
-      <Routes>
-        <Route path="/">
-          <Route index element={<LandingPage />} />
-          <Route path="/register" element={<Register />}></Route>
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/dashboard" element={<Dashboard />}></Route>
-          <Route path="/listing" element={<Listings />}>
-            <Route path=":create" element={<Create />}>
-              <Route path="images" element={<Images />} />
+      <listingContext.Provider value={{ listing, setListing }}>
+        <Routes>
+          <Route path="/">
+            <Route index element={<LandingPage />} />
+            <Route path="/register" element={<Register />}></Route>
+            <Route path="/login" element={<Login />}></Route>
+            <Route path="/dashboard" element={<Dashboard />}></Route>
+
+            <Route path="/listing" element={<Listings />}>
+              <Route path=":create" element={<Create />} />
             </Route>
-          </Route>
-          <Route path="/profile" element={<Profile />}></Route>
-          <Route path="/saved-property" element={<Saved />}></Route>
-          <Route path="/requests" element={<Request />}></Route>
-          <Route path="/rent" element={<Rent />}>
-            <Route path=":rentLocation" element={<Rent />}>
-              <Route path=":rentId" element={<Details />} />
+
+            <Route path="/profile" element={<Profile />}></Route>
+            <Route path="/saved-property" element={<Saved />}></Route>
+            <Route path="/requests" element={<Request />}></Route>
+            <Route path="/rent" element={<Rent />}>
+              <Route path=":rentLocation" element={<Rent />}>
+                <Route path=":rentId" element={<Details />} />
+              </Route>
             </Route>
+            <Route path="*" element={<NoMatch />} />
           </Route>
-          <Route path="*" element={<NoMatch />} />
-        </Route>
-      </Routes>
+        </Routes>
+      </listingContext.Provider>
     </>
   );
 }

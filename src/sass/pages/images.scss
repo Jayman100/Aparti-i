@@ -1,0 +1,33 @@
+.images {
+  display: flex;
+  gap: 2rem;
+
+  &__box {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &__upload {
+    border: 1px dashed #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+  }
+
+  &__details {
+    border: 1px solid #000;
+    width: 40%;
+    align-self: flex-start;
+  }
+
+  &__btn {
+    align-self: flex-end;
+    display: flex;
+    gap: 1rem;
+  }
+}
